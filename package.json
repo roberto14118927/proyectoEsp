@@ -1,0 +1,17 @@
+{
+  "name": "esp8266",
+  "version": "1.0.0",
+  "description": "Esp8266Arduino",
+  "main": "socketEsp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Roberto Eduardo Guzman Ruiz",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "net": "^1.0.2",
+    "os": "^0.1.1",
+    "socket.io": "^2.1.0"
+  }
+}
