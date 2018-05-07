@@ -20,7 +20,18 @@
     
     </h1>
 
+    <hr>
+    <h1 id="LedHtml">
+    
+    </h1>
+
+    <!-- <input type="text" id="LED_STATUS"> -->
+    <button id="enviar">ON/OFF</button>
+
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <script>
         // Initialize Firebase
         var config = {
@@ -43,6 +54,21 @@
         var NumeroHtml = document.getElementById('NumeroHtml');
         var dbRef = firebase.database().ref().child('Numero');//Es el campo variable de firebase
         dbRef.on('value', snap => NumeroHtml.innerText = snap.val());
+
+        var LedHtml = document.getElementById('LedHtml');
+        var dbRef = firebase.database().ref().child('LED_STATUS');//Es el campo variable de firebase
+        dbRef.on('value', snap => LedHtml.innerText = snap.val());
+
+        var statusLed=0;
+        $('#enviar').on('click', function(){
+            if(statusLed==0){
+                firebase.database().ref().child('LED_STATUS').set(0);
+                statusLed=1;
+            }else{
+                firebase.database().ref().child('LED_STATUS').set(1);
+                statusLed=0;
+            }
+        });
     </script>
 </body>
 </html>
