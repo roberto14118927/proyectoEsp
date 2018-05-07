@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="NombreHtml">
+
+    </h1>
+    <hr>
+    <h1 id="ApellidoHtml">
+
+    </h1>
+    <hr>
+    <h1 id="NumeroHtml">
+    
+    </h1>
+
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+        apiKey: "AIzaSyAM47K3_heNgyuxT_Qb-icdkpxikP1Gfcs",
+        authDomain: "esp8266-dacaa.firebaseapp.com",
+        databaseURL: "https://esp8266-dacaa.firebaseio.com",
+        projectId: "esp8266-dacaa",
+        storageBucket: "esp8266-dacaa.appspot.com",
+        messagingSenderId: "541910442647"
+        };
+        firebase.initializeApp(config);
+        var NombreHtml = document.getElementById('NombreHtml');
+        var dbRef = firebase.database().ref().child('Nombre');//Es el campo variable de firebase
+        dbRef.on('value', snap => NombreHtml.innerText = snap.val());
+
+        var ApellidoHtml = document.getElementById('ApellidoHtml');
+        var dbRef = firebase.database().ref().child('Apellido');//Es el campo variable de firebase
+        dbRef.on('value', snap => ApellidoHtml.innerText = snap.val());
+
+        var NumeroHtml = document.getElementById('NumeroHtml');
+        var dbRef = firebase.database().ref().child('Numero');//Es el campo variable de firebase
+        dbRef.on('value', snap => NumeroHtml.innerText = snap.val());
+    </script>
+</body>
+</html>
