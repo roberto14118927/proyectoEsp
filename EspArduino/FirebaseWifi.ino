@@ -13,7 +13,7 @@ void setup() {
     wifiMulti.addAP("INFINITUM2485_2.4", "Pk3F00FMYC");
     wifiMulti.addAP("UPGCH_EXT", "paguach1ta");
     pinMode(D1,OUTPUT);
-    while(wifiMulti.run() != WL_CONNECTED) {
+    if(wifiMulti.run() == WL_CONNECTED) {
         Serial.println(WiFi.localIP());
     }
 
